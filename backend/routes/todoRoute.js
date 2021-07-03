@@ -16,7 +16,7 @@ router.post("/", isAuth,async(req, res) => {
 
 router.get("/", isAuth, async(req, res) =>{
   try {
-      const todos = await TodoItem.find({id: req.token, done: false});
+      const todos = await TodoItem.find({id: req.token});
       return res.json(todos);
   } catch (error) {
     return res.status(500).json("Erro"+error);
